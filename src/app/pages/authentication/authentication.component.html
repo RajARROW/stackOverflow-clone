@@ -1,0 +1,37 @@
+<div class="bg-gray-200 h-screen">
+  <div class="container mx-auto h-full flex justify-center items-center">
+    <div class="w-full mx-2 md:w-5/12">
+      <h1 class="font-hairline mb-6 text-center">Login to our Website</h1>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-8 border-t-8 border-primary bg-white mb-6 rounded-lg shadow-lg">
+        <div class="mb-4">
+          <label class="font-bold text-gray-700 block mb-2">Email</label>
+          <input formControlName="email" type="email"
+            class="input-box"
+            placeholder="Your Username">
+            <span class="text-muted text-red-600 italic" *ngIf="fieldHasError('email', 'required')">Email is required</span>
+            <span class="text-muted text-red-600 italic" *ngIf="fieldHasError('email','pattern')">Invalid Email</span>
+        </div>
+
+        <div class="mb-4">
+          <label class="font-bold text-gray-700 block mb-2">Password</label>
+          <input formControlName="password" type="password"
+            class="input-box"
+            placeholder="Your Password">
+            <span class="text-muted text-red-600 italic" *ngIf="fieldHasError('password', 'required')">Password is required</span>
+            <span class="text-muted text-red-600 italic" *ngIf="fieldHasError('password', 'minlength')">Password should be minimum of length 6</span>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button class="login-btn"> Login </button>
+          <a class="no-underline inline-block align-baseline font-bold text-sm text-blue hover:text-blue-dark float-right">
+            Forgot Password?
+          </a>
+        </div>
+      </form>
+      <div class="text-center">
+        <p class="text-gray-700 text-sm">Don't have an account? <a href="#"
+            class="no-underline text-blue font-bold">Create an Account</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>

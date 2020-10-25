@@ -1,0 +1,16 @@
+<div *ngIf="!loader" class="w-11/12 mx-auto">
+  <label class="font-bold">Featured Questions</label>
+  <div 
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()" class="bg-white mt-4 rounded shadow">
+    <app-question-card [data]="item" *ngFor="let item of questionList"></app-question-card>
+  </div>
+  <div *ngIf="hasMore" class="loader">Loading...</div>
+  <p class="my-6 text-center py-8 bg-gray-300 rounded-md text-black font-bold text-base" *ngIf="!hasMore">No More Data Found</p>
+</div>
+
+<div *ngIf="loader" class="min-h-screen">
+  <div class="loader">Loading...</div>
+</div>

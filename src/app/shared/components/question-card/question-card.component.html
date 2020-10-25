@@ -1,0 +1,19 @@
+<div class="break-all p-8 flex justify-center flex-wrap-reverse border-gray-300 border-b-2 md:flex-no-wrap md:justify-start">
+  <div class="flex items-center mt-3 md:mt-0">
+    <div class="stats-container  border-gray-400">
+      <p>{{data?.score}}</p>
+      <p>votes</p>
+    </div>
+    <div [ngClass]="data?.is_answered ? ' text-green-400 border-green-400' : 'border-gray-400'" class="stats-container">
+      <p>{{data?.answer_count}}</p>
+      <p>answers</p>
+    </div>
+  </div>
+  <div class="ml-8">
+    <p class="font-bold text-lg">{{data?.title}}</p>
+    <p class="my-2 text-gray-600 text-xs">answered <span class="font-bold">{{data?.last_activity_date | date: 'medium'}}</span> by <span (click)="getUserData(data?.owner?.user_id)" class="font-bold">{{data?.owner?.display_name}}</span></p>
+    <div>
+      <app-tag *ngFor="let item of data.tags" [tagName]="item"></app-tag>
+    </div>
+  </div>
+</div>

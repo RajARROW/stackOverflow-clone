@@ -1,0 +1,66 @@
+.main-container {
+  @apply flex;
+  @apply flex-col;
+  height: 100%;
+  .side-nav-container {
+    @apply 
+    shadow-xl 
+    bg-white 
+    flex 
+    flex-wrap 
+    items-center 
+    justify-between 
+    relative 
+    z-10 
+    p-0
+  }
+  .side-nav-menu-container {
+    @apply 
+    shadow 
+    absolute 
+    top-0
+    left-0 
+    right-0 
+    z-40 
+    overflow-y-auto 
+    overflow-x-hidden 
+    h-auto 
+    items-center 
+    flex-1 
+    rounded
+  }
+  .active {
+    @apply bg-primary-lighter text-black border-r-8 border-primary font-light;
+  }
+}
+
+@screen md {
+  .main-container {
+    @apply flex-row;
+    .side-nav-container {
+      @apply 
+      left-0 
+      block 
+      top-0 
+      bottom-0 
+      overflow-y-auto 
+      flex-row 
+      flex-no-wrap 
+      overflow-hidden 
+      w-64 
+      min-h-full 
+      py-4
+    }
+    .side-nav-menu-container {
+      @apply
+      flex 
+      flex-col
+      items-stretch
+      opacity-100
+      relative
+      mt-4
+      shadow-none
+    }
+  }
+  
+}

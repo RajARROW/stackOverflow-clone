@@ -1,0 +1,20 @@
+<app-top-nav (menuToggle)="menuToggle($event)"></app-top-nav>
+<div>
+  <div>
+    <nav class="main-container">
+      <div class="side-nav-container">
+        <div class="side-nav-menu-container" [ngClass]="collapseShow">
+          <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+            <li *ngFor="let list of sideNavList" class="items-center">
+              <a class="hover:text-primary text-xs uppercase py-3 font-light block" [class.active]="isActive(list?.route)" [routerLink]="list?.route"><i
+                  class="fas fa-tv opacity-75 mr-2 text-sm"></i> {{ list?.name }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="bg-gray-100 w-full pt-12">
+        <router-outlet></router-outlet>
+      </div>
+    </nav>
+  </div>
+</div>
